@@ -17,12 +17,12 @@ const options = {
   minuteIncrement: 1,
   onClose(selectedDates) {
     chosenTime = selectedDates[0];
-    if (this.defaultDate > chosenTime) {
+    if (options.defaultDate > chosenTime) {
       buttonStartEl.setAttribute('disabled', 'disabled');
       Notify.warning('Please choose a date in the future');
       return;
     }
-    if (this.defaultDate < chosenTime) {
+    if (options.defaultDate < chosenTime) {
       buttonStartEl.removeAttribute('disabled', 'disabled');
     }
   },
