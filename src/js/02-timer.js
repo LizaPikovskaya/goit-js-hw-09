@@ -3,15 +3,11 @@ import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
 
 const buttonStartEl = document.querySelector('button[data-start]');
-// buttonStartEl.setAttribute('disabled', 'disabled');
 const days = document.querySelector('span[data-days]');
 const hours = document.querySelector('span[data-hours]');
 const minutes = document.querySelector('span[data-minutes]');
 const seconds = document.querySelector('span[data-seconds]');
 
-// const divEl = document.querySelector('.timer')
-// divEl.style.display = 'flex';
-// divEl.style.gap = '20px';
 
 let chosenTime = null;
 const options = {
@@ -21,12 +17,12 @@ const options = {
   minuteIncrement: 1,
   onClose(selectedDates) {
     chosenTime = selectedDates[0];
-    if (options.defaultDate > chosenTime) {
+    if (this.defaultDate > chosenTime) {
       buttonStartEl.setAttribute('disabled', 'disabled');
       Notify.warning('Please choose a date in the future');
       return;
     }
-    if (options.defaultDate < chosenTime) {
+    if (this.defaultDate < chosenTime) {
       buttonStartEl.removeAttribute('disabled', 'disabled');
     }
   },
